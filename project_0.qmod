@@ -1,0 +1,22 @@
+qfunc controllers(x: qnum, psi: qnum) {
+  control (x == 0) {
+    apply_to_all(IDENTITY, psi);
+  }
+  control (x == 1) {
+    Z(psi);
+  }
+}
+
+qfunc main(output x: qbit, output psi: qbit) {
+  // Allocate and rotate selector qubit x
+  allocate(1, x);
+  RY(2*acos(sqrt(0.3)), x);
+
+  // Apply the nonunitary gate by applying extended unitary gate on two qubits
+  allocate(1, psi);
+  within {
+    inplace_prepare_state([0.5, 0.5], 0.001, x);
+  } apply {
+    controllers(x, psi);
+  }
+}
