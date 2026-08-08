@@ -1,5 +1,7 @@
 # Quantum-Augmented Physics-Informed Neural Networks (QA-PINN)
 
+Authors: Sheraz Arshad, Wilson Smith, Hao Mack Yang
+
 ## A Controlled Empirical Study: Classical PINNs vs Quantum-Enhanced PINNs
 
 This repository contains a complete, reproducible research codebase for evaluating whether quantum-enhanced feature maps improve PDE learning efficiency, generalization, or optimization stability compared to classical Physics-Informed Neural Networks.
@@ -32,10 +34,17 @@ qapinn_research/
 
 ## Quick Start
 
+Compatible with Python 3.12.
+
 ### 1. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
+```
+
+For GPU compatibility, run
+```bash
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cu132
 ```
 
 ### 2. Run a Single Experiment

@@ -1,0 +1,41 @@
+seed: 42
+pde:
+  type: burgers
+  viscosity: 0.003183098861837907
+  domain_x:
+  - -1.0
+  - 1.0
+  domain_t:
+  - 0.0
+  - 1.0
+  n_collocation: 10000
+  n_boundary: 200
+  n_initial: 200
+model:
+  type: qapinn
+  hidden_layers:
+  - 64
+  - 64
+  - 64
+  - 64
+  activation: tanh
+  quantum:
+    n_qubits: 6
+    depth: 1
+    entanglement: linear
+    encoding: angle
+training:
+  optimizer: adam
+  learning_rate: 0.001
+  epochs: 5000
+  loss_weights:
+    pde: 1.0
+    boundary: 10.0
+    initial: 10.0
+  checkpoint_every: 1000
+  log_every: 100
+evaluation:
+  n_test_points: 10000
+  ood_shift: 0.1
+  n_stability_runs: 3
+experiment_name: qapinn_6q_shallow_linear_burgers

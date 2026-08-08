@@ -1,0 +1,10 @@
+{
+  "experiment_name": "pinn_baseline_burgers",
+  "config_path": "experiments/configs/pinn_baseline.yaml",
+  "seed": 42,
+  "model_type": "pinn",
+  "total_parameters": 12737,
+  "training_time_seconds": 327.4479100704193,
+  "final_loss": 0.015038901939988136,
+  "memory_usage_mb": 0.048587799072265625
+}
